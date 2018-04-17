@@ -47,8 +47,8 @@ export class App {
 
     private async initArcGisJsApi() {
         loadScript({
-            url: 'https://js.arcgis.com/4.6/init.js',
-            css: 'https://js.arcgis.com/4.6/esri/css/main.css',
+            url: 'https://app.gdep.gov.cn/arcgis-js-api/library/4.6/init.js',
+            css: 'https://app.gdep.gov.cn/arcgis-js-api/library/4.6/esri/css/main.css',
             dojoConfig: {
                 async: true,
                 locale: 'zh-cn'
@@ -57,6 +57,5 @@ export class App {
         const [config] = await loadModules(['esri/config']);
         config.request.corsEnabledServers.push('app.gdep.gov.cn');
     }
-
 
 }
