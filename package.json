@@ -33,14 +33,14 @@
   "devDependencies": {
     "concurrently": "^4.0.1",
     "lite-server": "^2.4.0",
-    "rollup": "^0.65.0",
+    "rollup": "^0.66.1",
     "rollup-plugin-alias": "^1.4.0",
     "rollup-plugin-commonjs": "^9.1.6",
     "rollup-plugin-css-only": "^0.4.0",
     "rollup-plugin-node-resolve": "^3.4.0",
     "rollup-plugin-typescript2": "0.17.0",
-    "rollup-plugin-uglify": "^5.0.0",
-    "typescript": "^2.8.1",
+    "rollup-plugin-uglify": "^6.0.0",
+    "typescript": "^2.9.2",
     "@types/arcgis-js-api": "^4.8.1"
   }
 }
