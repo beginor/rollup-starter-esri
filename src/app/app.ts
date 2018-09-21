@@ -41,14 +41,15 @@ export class App {
         };
         this.view = new SceneView(viewProps);
         this.view.when(() => {
-            console.log('SceneView inited!')
+            console.log('SceneView inited!');
+            this.addFeatureLayer();
         });
     }
 
-    private async initArcGisJsApi() {
+    private async initArcGisJsApi(): Promise<void> {
         loadScript({
-            url: 'https://app.gdep.gov.cn/arcgis-js-api/library/4.6/init.js',
-            css: 'https://app.gdep.gov.cn/arcgis-js-api/library/4.6/esri/css/main.css',
+            url: 'https://app.gdep.gov.cn/arcgis-js-api/library/4.8/init.js',
+            css: 'https://app.gdep.gov.cn/arcgis-js-api/library/4.8/esri/css/main.css',
             dojoConfig: {
                 async: true,
                 locale: 'zh-cn'
@@ -56,6 +57,17 @@ export class App {
         });
         const [config] = await loadModules(['esri/config']);
         config.request.corsEnabledServers.push('app.gdep.gov.cn');
+        config.request.corsEnabledServers.push('127.0.0.1:8088');
+    }
+
+    private async addFeatureLayer(): Promise<void> {
+        const [FeatureLayer] = loadModules['esri/layers/FeatureLayer'];
+        const featureLayerProps: __esri.FeatureLayerProperties = {
+            url: '',
+            outFields: ['*'],
+            popupEnabled: true,
+            renderer: {}
+        };
     }
 
 }
