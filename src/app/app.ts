@@ -76,25 +76,17 @@ export class App {
     }
 
     private async initArcGisJsApi(): Promise<void> {
+        const baseUrl = 'https://app.gdep.gov.cn/arcgis-js-api/library/4.9';
         loadScript({
-            url: 'https://app.gdep.gov.cn/arcgis-js-api/library/4.8/init.js',
-            css: 'https://app.gdep.gov.cn/arcgis-js-api/library/4.8/esri/css/main.css',
+            url: baseUrl + '/init.js',
+            css: baseUrl + '/esri/css/main.css',
             dojoConfig: {
                 async: true,
                 locale: 'zh-cn'
             }
         });
         const [config] = await loadModules(['esri/config']);
-        config.request.corsEnabledServers.push('app.gdep.gov.cn')
-        config.request.corsEnabledServers.push({
-            host: 'gishub.gdepb.gov.cn',
-            withCredentials: true
-        });
-        config.request.corsEnabledServers.push({
-            host: 'gishub.gdepb.gov.cn:443',
-            withCredentials: true
-        });
-        config.request.corsEnabledServers.push('127.0.0.1:8088');
+        config.request.trustedServers.push('app.gdep.gov.cn')
     }
 
     private async addFeatureLayer(): Promise<void> {
