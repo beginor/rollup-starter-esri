@@ -28,7 +28,8 @@
   },
   "homepage": "https://github.com/beginor/rollup-starter#readme",
   "dependencies": {
-    "esri-loader": "^2.5.0"
+    "esri-loader": "^2.6.0",
+    "esri-service": "^2.1.0"
   },
   "devDependencies": {
     "concurrently": "^4.0.1",
