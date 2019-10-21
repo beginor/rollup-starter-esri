@@ -1,4 +1,5 @@
 import * as esri from 'esri-service';
+import { loadModules } from 'esri-loader';
 
 export class App {
 
@@ -22,31 +23,8 @@ export class App {
     private async initMapView(): Promise<void> {
         const map = await esri.createWebScene({
             basemap: 'satellite',
-            ground: {
-                surfaceColor: 'blue',
-                layers: [
-                    {
-                        type: 'elevation',
-                        url: 'http://docker7.gdepb.gov.cn/arcgis/rest/services/BaseMap/WGS84_DEM/ImageServer'
-                    }
-                ]
-            },
-            layers: [
-                {
-                    type: 'feature',
-                    url: 'https://gishub.gdepb.gov.cn/arcgis/rest/services/mapservices/wgs84_gd_sar_prov_simplify/MapServer/0',
-                    opacity: 0.7,
-                    renderer: {
-                        type: 'simple',
-                        symbol: {
-                            type: 'simple-line',
-                            color: 'red',
-                            width: 2
-                        }
-                    }
-                }
-            ]
-        } as any);
+            ground: 'world-elevation',
+        });
         this.sceneView = await esri.createSceneView({
             container: this.container,
             map: map,
