@@ -28,8 +28,8 @@
   },
   "homepage": "https://github.com/beginor/rollup-starter#readme",
   "dependencies": {
-    "esri-loader": "^2.6.0",
-    "esri-service": "^2.1.0"
+    "esri-loader": "^2.11.0",
+    "esri-service": "^2.5.0"
   },
   "devDependencies": {
     "concurrently": "^5.0.0",
@@ -42,6 +42,6 @@
     "rollup-plugin-typescript2": "^0.24.3",
     "rollup-plugin-uglify": "^6.0.3",
     "typescript": "^3.6.4",
-    "@types/arcgis-js-api": "^4.9.0"
+    "@types/arcgis-js-api": "^4.13.0"
   }
 }
