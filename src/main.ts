@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', e => {
 });
 
 async function initArcGisJsApi(): Promise<void> {
-    const baseUrl = 'https://app.gdeei.cn/arcgis-js-api/library/4.13';
+    const baseUrl = 'https://app.gdeei.cn/arcgis-js-api/library/4.14';
     loadScript({
         url: `${baseUrl}/init.js`,
         css: `${baseUrl}/esri/css/main.css`,
