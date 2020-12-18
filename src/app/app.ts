@@ -1,5 +1,5 @@
-import * as esri from 'esri-service';
-import { loadModules } from 'esri-loader';
+import WebScene from '@arcgis/core/WebScene';
+import SceneView from '@arcgis/core/views/SceneView';
 
 export class App {
 
@@ -8,24 +8,20 @@ export class App {
     constructor(private container: HTMLDivElement) { }
 
     public run() {
-        this.init().then(() => {
-            console.log('app init');
-        }).catch(ex => {
-            console.error(ex);
-        });
+        this.init();
     }
 
-    private async init(): Promise<void> {
-        await this.initMapView();
+    private init(): void {
+        this.initMapView();
         // add your code here.
     }
 
     private async initMapView(): Promise<void> {
-        const map = await esri.createWebScene({
+        const map = new WebScene({
             basemap: 'satellite',
             ground: 'world-elevation',
         });
-        this.sceneView = await esri.createSceneView({
+        this.sceneView = new SceneView({
             container: this.container,
             map: map,
             zoom: 7,
