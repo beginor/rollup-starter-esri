@@ -27,7 +27,7 @@ export default {
             tsconfig: 'tsconfig.json',
             sourceMap: !production
         }),
-        css({ output: 'bundle.css' }),
+        css({ output: 'main.css' }),
         alias({}),
         nodeResolve({ mainFields: ['module', 'jsnext:main', 'main'] }),
         commonjs({
