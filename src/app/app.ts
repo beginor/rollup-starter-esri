@@ -1,5 +1,5 @@
-import WebScene from '@arcgis/core/WebScene';
-import SceneView from '@arcgis/core/views/SceneView';
+import { loadScript } from 'esri-loader';
+import * as arcgis from 'esri-service';
 
 export class App {
 
@@ -7,21 +7,37 @@ export class App {
 
     constructor(private container: HTMLDivElement) { }
 
-    public run() {
-        this.init();
+    public run(): void {
+        this.init().catch(ex => console.error(ex));
     }
 
-    private init(): void {
-        this.initMapView();
+    private async init(): Promise<void> {
+        await this.initArcGISApi()
+        await this.initMapView();
         // add your code here.
     }
 
+    private async initArcGISApi(): Promise<void> {
+        const baseUrl = 'https://app.gdeei.cn/arcgis-js-api/library/4.17';
+        await loadScript({
+            url: `${baseUrl}/init.js`,
+            css: `${baseUrl}/esri/css/main.css`,
+            dojoConfig: {
+                async: true,
+                locale: 'zh-cn',
+                has: {
+                    'esri-native-promise': true
+                }
+            }
+        });
+    }
+
     private async initMapView(): Promise<void> {
-        const map = new WebScene({
+        const map = await arcgis.createWebScene({
             basemap: 'satellite',
             ground: 'world-elevation',
         });
-        this.sceneView = new SceneView({
+        this.sceneView = await arcgis.createSceneView({
             container: this.container,
             map: map,
             zoom: 7,
