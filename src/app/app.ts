@@ -3,31 +3,26 @@ import * as arcgis from 'esri-service';
 
 export class App {
 
-    /** @private @type {__esri.SceneView} */
-    sceneView = undefined;
-    /** @private @type {HTMLDivElement} */
-    container = undefined;
+    sceneView!: __esri.SceneView;
     /** app title */
     title: string = '';
 
-    constructor() { }
+    constructor(private container: HTMLDivElement) { }
 
     /**
      * run the app.
      */
-    run() {
+    public run() {
         this.init().catch(ex => console.error(ex));
     }
 
-    /** @private */
-    async init() {
+    private async init() {
         await this.initArcGISApi()
         await this.initMapView();
     }
 
-    /** @private */
-    async initArcGISApi() {
-        const baseUrl = 'https://app.gdeei.cn/arcgis-js-api/library/4.17';
+    private async initArcGISApi() {
+        const baseUrl = 'https://app.gdeei.cn/arcgis-js-api/library/4.18';
         await loadScript({
             url: `${baseUrl}/init.js`,
             css: `${baseUrl}/esri/css/main.css`,
@@ -41,8 +36,7 @@ export class App {
         });
     }
 
-    /** @private */
-    async initMapView() {
+    private async initMapView() {
         const map = await arcgis.createWebScene({
             basemap: 'satellite',
             ground: 'world-elevation',
@@ -57,7 +51,7 @@ export class App {
             },
             viewingMode: 'global'
         });
-        window['_sceneView'] = this.sceneView;
+        Object.assign(window, { _sceneView: this.sceneView });
         await this.sceneView.when();
         console.log('SceneView inited!');
     }
