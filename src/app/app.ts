@@ -7,10 +7,10 @@ export class App {
     sceneView = undefined;
     /** @private @type {HTMLDivElement} */
     container = undefined;
+    /** app title */
+    title: string = '';
 
-    constructor(/** @type {HTMLDivElement} */ container) {
-        this.container = container;
-    }
+    constructor() { }
 
     /**
      * run the app.
