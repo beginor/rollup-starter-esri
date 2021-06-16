@@ -5,7 +5,7 @@ export class App {
 
     sceneView!: __esri.SceneView;
     /** app title */
-    title: string = '';
+    public title = '';
 
     constructor(private container: HTMLDivElement) { }
 
