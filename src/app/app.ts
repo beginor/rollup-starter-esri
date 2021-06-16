@@ -3,7 +3,7 @@ import * as arcgis from 'esri-service';
 
 export class App {
 
-    sceneView!: __esri.SceneView;
+    private sceneView!: __esri.SceneView;
     /** app title */
     public title = '';
 
@@ -12,16 +12,16 @@ export class App {
     /**
      * run the app.
      */
-    public run() {
+    public run(): void {
         this.init().catch(ex => console.error(ex));
     }
 
-    private async init() {
+    private async init(): Promise<void> {
         await this.initArcGISApi()
         await this.initMapView();
     }
 
-    private async initArcGISApi() {
+    private async initArcGISApi(): Promise<void> {
         const baseUrl = 'https://app.gdeei.cn/arcgis-js-api/library/4.18';
         await loadScript({
             url: `${baseUrl}/init.js`,
@@ -36,7 +36,7 @@ export class App {
         });
     }
 
-    private async initMapView() {
+    private async initMapView(): Promise<void> {
         const map = await arcgis.createWebScene({
             basemap: 'satellite',
             ground: 'world-elevation',
