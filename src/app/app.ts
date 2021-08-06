@@ -1,6 +1,8 @@
 import { loadScript } from 'esri-loader';
 import * as arcgis from 'esri-service';
 
+import './app.scss';
+
 export class App {
 
     private sceneView!: __esri.SceneView;
