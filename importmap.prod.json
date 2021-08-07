@@ -2,6 +2,7 @@
   "imports": {
     "tslib": "./dist/libs/tslib/tslib.min.js",
     "bootstrap": "./dist/libs/bootstrap/bootstrap.esm.min.js",
-    "@popperjs/core": "./dist/libs/@popperjs/core.min.js"
+    "@popperjs/core": "./dist/libs/@popperjs/core.min.js",
+    "@arcgis/": "https://js.arcgis.com/4.20/@arcgis/"
   }
 }

@@ -22,7 +22,8 @@ export default [
     watch: { buildDelay: 0 },
     treeshake: production,
     external: [
-      'tslib', 'bootstrap', '@popperjs/core'
+      'tslib', 'bootstrap', '@popperjs/core',
+      /\@arcgis\/core\/.*/
     ],
     plugins: [
       typescript({ tsconfig: 'tsconfig.json', sourceMap: !production }),

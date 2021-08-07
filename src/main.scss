@@ -9,4 +9,5 @@ html, body {
 }
 #app {
   background-color: $body-bg;
+  @include full-width-height();
 }
