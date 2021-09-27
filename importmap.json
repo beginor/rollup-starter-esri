@@ -3,6 +3,6 @@
     "tslib": "./dist/libs/tslib/tslib.js",
     "bootstrap": "./dist/libs/bootstrap/bootstrap.esm.js",
     "@popperjs/core": "./dist/libs/@popperjs/core.js",
-    "@arcgis/": "https://js.arcgis.com/4.20/@arcgis/"
+    "@arcgis/": "https://js.arcgis.com/4.21/@arcgis/"
   }
 }

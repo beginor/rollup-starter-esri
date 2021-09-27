@@ -1,7 +1,7 @@
 import './main.scss';
 
 Object.assign(window, { esriConfig: {
-    assetsPath: 'https://js.arcgis.com/4.20/', // eslint-disable-line max-len
+    assetsPath: 'https://js.arcgis.com/4.21/', // eslint-disable-line max-len
     locale: 'zh-CN',
 }});
 
